@@ -1,14 +1,14 @@
 //react is a module
 //when importing a module, only the name is used, not the path
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Card, Button} from 'react-bootstrap';
+import {Card, CardColumns, Button} from 'react-bootstrap';
 import React, {Component} from 'react';
 import items from '../data.json'
 
 class Main extends Component {
     render() {
         return (
-            <>
+            <CardColumns>
                 {items.map(item => (
                     <HornedBeast 
                         src={item.title}
@@ -16,7 +16,7 @@ class Main extends Component {
                         imgUrl={item.image_url}
                     />
                 ))}
-            </>
+            </CardColumns>
         );
     }
 }
