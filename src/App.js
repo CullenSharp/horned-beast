@@ -1,5 +1,6 @@
 import logo, { ReactComponent } from './logo.svg';
 import './App.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 //imports just the component
 import React, {Component} from 'react';
 import Header from './components/Header.js'

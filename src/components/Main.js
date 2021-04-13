@@ -1,5 +1,7 @@
 //react is a module
 //when importing a module, only the name is used, not the path
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Card, Button} from 'react-bootstrap';
 import React, {Component} from 'react';
 import items from '../data.json'
 
@@ -35,17 +37,22 @@ class HornedBeast extends Component {
     render() {
         return (
             //<></> is called a fragment
-            <div
+            <Card
+            style={{width: '18rem'}}
             onClick={this.favorite}>
-                <h2>{this.props.title}</h2>
-                <p>{this.props.desc}</p>
-                <p>{`❤️${this.state.likes}`}</p>
-                <img 
+
+                <Card.Img
+                    variant="top" 
                     src={this.props.imgUrl}
                     alt={`An image of a ${this.props.title}`}
                     title={this.props.title}
-                    />
-            </div>
+                />
+                <Card.Body>
+                    <Card.Title>{this.props.title}</Card.Title>
+                    <Card.Text>{this.props.desc}</Card.Text>
+                    <Button variant="primary">{`❤️ ${this.state.likes}`}</Button>
+                </Card.Body>
+            </Card>
         );
     }
 }
