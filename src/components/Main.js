@@ -1,3 +1,5 @@
+import React, {Component} from 'react';
+
 function HornedBeast(props){
     return (
         <div>
@@ -12,21 +14,23 @@ function HornedBeast(props){
     );
 }
 
-function main() {
-    return (
-        <div>
-            <HornedBeast 
-                title={'Horn-Dog'}
-                imgUrl={'https://via.placeholder.com/150/FF0000'}
-                desc={'Horned dog'}    
-            />
-            <HornedBeast 
-                title={'Homo Hornicus'}
-                imgUrl={'https://via.placeholder.com/150/008000'}
-                desc={'Horned sapien'}  
-            />
-        </div>
-    );
+class Main extends Component {
+    render() {
+        return (
+            <div>
+                <HornedBeast 
+                    title={'Horn-Dog'}
+                    imgUrl={'https://via.placeholder.com/150/FF0000'}
+                    desc={'Horned dog'}    
+                />
+                <HornedBeast 
+                    title={'Homo Hornicus'}
+                    imgUrl={'https://via.placeholder.com/150/008000'}
+                    desc={'Horned sapien'}  
+                />
+            </div>
+        );
+    }
 }
 
-export default main;
+export default Main;
