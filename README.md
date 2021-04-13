@@ -1,6 +1,24 @@
-# Getting Started with Create React App
+# Horned Beasts
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## time estimates
+
+feature 1: display images
+estimated time to completion: 1:30hours
+start time: 1:38pm
+finish time:
+actual time to complete:
+
+feature 2: Allow users to vote for their favorite beast
+estimated time to completion: 1:30hours
+start time:
+finish time:
+actual time to complete:
+
+feature 3: Bootstrap
+estimated time to completion: 1:30hours
+start time:
+finish time:
+actual time to complete:
 
 ## Available Scripts
 
