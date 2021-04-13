@@ -1,6 +1,5 @@
 //react is a module
 //when importing a module, only the name is used, not the path
-import 'bootstrap/dist/css/bootstrap.min.css';
 import {Card, CardColumns, Button} from 'react-bootstrap';
 import React, {Component} from 'react';
 import items from '../data.json'
@@ -38,8 +37,9 @@ class HornedBeast extends Component {
         return (
             //<></> is called a fragment
             <Card
-            style={{width: '18rem'}}
-            onClick={this.favorite}>
+            bg='dark'
+            text='light'
+            >
 
                 <Card.Img
                     variant="top" 
@@ -50,7 +50,7 @@ class HornedBeast extends Component {
                 <Card.Body>
                     <Card.Title>{this.props.title}</Card.Title>
                     <Card.Text>{this.props.desc}</Card.Text>
-                    <Button variant="primary">{`❤️ ${this.state.likes}`}</Button>
+                    <Button variant="light" onClick={this.favorite}>{`❤️ ${this.state.likes}`}</Button>
                 </Card.Body>
             </Card>
         );

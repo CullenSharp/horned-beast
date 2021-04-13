@@ -1,7 +1,11 @@
+import {Navbar} from 'react-bootstrap';
+
 export default function Footer () {
     return (
-        <p>
-            Cullen Sharp
-        </p>
+        <Navbar bg='dark' variant='dark'>
+            <Navbar.Brand href="#bio">
+                Author: Cullen Sharp
+            </Navbar.Brand>
+        </Navbar>
     );
 }
