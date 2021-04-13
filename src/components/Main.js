@@ -1,32 +1,60 @@
-function HornedBeast(props){
-    return (
-        <div>
-            <h2>{props.title}</h2>
-            <p>{props.desc}</p>
-            <img 
-                src={props.imgUrl}
-                alt={`An image of a ${props.title}`}
-                title={props.title}
-                 />
-        </div>
-    );
+//react is a module
+//when importing a module, only the name is used, not the path
+import {Card, CardColumns, Button} from 'react-bootstrap';
+import React, {Component} from 'react';
+import items from '../data.json'
+
+class Main extends Component {
+    render() {
+        return (
+            <CardColumns>
+                {items.map(item => (
+                    <HornedBeast 
+                        src={item.title}
+                        desc={item.description}
+                        imgUrl={item.image_url}
+                    />
+                ))}
+            </CardColumns>
+        );
+    }
 }
 
-function main() {
-    return (
-        <div>
-            <HornedBeast 
-                title={'Horn-Dog'}
-                imgUrl={'https://via.placeholder.com/150/FF0000'}
-                desc={'Horned dog'}    
-            />
-            <HornedBeast 
-                title={'Homo Hornicus'}
-                imgUrl={'https://via.placeholder.com/150/008000'}
-                desc={'Horned sapien'}  
-            />
-        </div>
-    );
+class HornedBeast extends Component {
+    //props is undefined
+    constructor(props) {
+        super(props);
+        this.state = {
+            likes: 0,
+        }
+    }
+
+    favorite = () => {
+        this.setState({likes: this.state.likes + 1});
+    }
+
+    render() {
+        return (
+            //<></> is called a fragment
+            <Card
+            bg='dark'
+            text='light'
+            >
+
+                <Card.Img
+                    variant="top" 
+                    src={this.props.imgUrl}
+                    alt={`An image of a ${this.props.title}`}
+                    title={this.props.title}
+                />
+                <Card.Body>
+                    <Card.Title>{this.props.title}</Card.Title>
+                    <Card.Text>{this.props.desc}</Card.Text>
+                    <Button variant="light" onClick={this.favorite}>{`❤️ ${this.state.likes}`}</Button>
+                </Card.Body>
+            </Card>
+        );
+    }
 }
 
-export default main;
+export default Main;

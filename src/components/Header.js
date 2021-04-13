@@ -1,7 +1,11 @@
+import {Navbar} from 'react-bootstrap';
+
 export default function Header() {
     return (
-    <h1>
-        Horned Beasts:
-    </h1>
+        <Navbar bg="dark" variant="dark">
+            <Navbar.Brand href="#home">
+                Horned Beasts:
+            </Navbar.Brand>
+        </Navbar>
     );
 }
