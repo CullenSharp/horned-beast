@@ -1,6 +1,7 @@
 //react is a module
 //when importing a module, only the name is used, not the path
 import React, {Component} from 'react';
+import items from '../data.json'
 
 function HornedBeast(props){
     return (
@@ -31,20 +32,15 @@ class Main extends Component {
 
     render() {
         return (
-            <div>
-                <HornedBeast 
-                    onClick={this.liked()}
-                    title={'Horn-Dog'}
-                    imgUrl={'https://via.placeholder.com/150/FF0000'}
-                    desc={'Horned dog'}    
-                />
-                <HornedBeast 
-                    onClick={this.liked}
-                    title={'Homo Hornicus'}
-                    imgUrl={'https://via.placeholder.com/150/008000'}
-                    desc={'Horned sapien'}  
-                />
-            </div>
+            <>
+                {items.map(item => (
+                    <HornedBeast 
+                        src={item.title}
+                        desc={item.description}
+                        imgUrl={item.image_url}
+                    />
+                ))}
+            </>
         );
     }
 }
