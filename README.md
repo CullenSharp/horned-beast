@@ -4,7 +4,7 @@
 
 feature 1: display images
 estimated time to completion: 1:30hours
-start time: 1:38pm
+start time: 1:42pm
 finish time:
 actual time to complete:
 
