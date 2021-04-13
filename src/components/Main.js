@@ -3,33 +3,7 @@
 import React, {Component} from 'react';
 import items from '../data.json'
 
-function HornedBeast(props){
-    return (
-        //<></> is called a fragment
-        <>
-            <h2>{props.title}</h2>
-            <p>{props.desc}</p>
-            <img 
-                src={props.imgUrl}
-                alt={`An image of a ${props.title}`}
-                title={props.title}
-                 />
-        </>
-    );
-}
-
 class Main extends Component {
-    constructor(props) {
-        //get props from React.Component
-        super(props);
-
-        this.state = {
-
-        }
-    }
-
-    liked = () => console.log("likey likey");
-
     render() {
         return (
             <>
@@ -41,6 +15,37 @@ class Main extends Component {
                     />
                 ))}
             </>
+        );
+    }
+}
+
+class HornedBeast extends Component {
+    //props is undefined
+    constructor(props) {
+        super(props);
+        this.state = {
+            likes: 0,
+        }
+    }
+
+    favorite = () => {
+        this.setState({likes: this.state.likes + 1});
+    }
+
+    render() {
+        return (
+            //<></> is called a fragment
+            <div
+            onClick={this.favorite}>
+                <h2>{this.props.title}</h2>
+                <p>{this.props.desc}</p>
+                <p>{`❤️${this.state.likes}`}</p>
+                <img 
+                    src={this.props.imgUrl}
+                    alt={`An image of a ${this.props.title}`}
+                    title={this.props.title}
+                    />
+            </div>
         );
     }
 }
