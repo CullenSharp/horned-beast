@@ -1,25 +1,23 @@
-import logo, { ReactComponent } from './logo.svg';
 import './App.css';
-//imports just the component
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Container, CardColumns} from 'react-bootstrap';
-import React, {Component} from 'react';
-import Header from './components/Header.js'
-import Main from './components/Main.js'
-import Footer from './components/Footer.js'
+import {Container} from 'react-bootstrap'; //destructure Container from react-boostrap
+//alias? called "React"
+import React from 'react'; //imports the default export and Component
+import Header from './components/Header.js';
+import Main from './components/Main.js';
+import Footer from './components/Footer.js';
 
-class App extends Component {
+class App extends React.Component {
+  //render method is specific to reactComponent
   render() {
     return (
-      <Container fluid>
-        <>
-          <Header />
-          <Main />
-          <Footer />
-        </>
+      <Container fluid> {/*Not sure how this is styled*/}
+        <Header />
+        <Main />
+        <Footer />
       </Container>
     );
   }
 }
 
-export default App;
+export default App; 

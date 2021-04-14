@@ -20,3 +20,6 @@ start time: 2:30pm
 finish time: 3:15pm
 actual time to complete: 45mins
 
+## Credits
+
+Thank you to JB Tellez for his example code.
