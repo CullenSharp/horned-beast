@@ -6,10 +6,16 @@ export default class FilteredBeasts extends Component {
     return (
       <Form inline>
         <Form.Control
-          type="text"
+          as="select"
           placeholder="Filter by Number of horns"
           onChange={this.props.onChange}
-        ></Form.Control>
+        >
+            <option>Filter by number of horns</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>100</option>
+        </Form.Control>
       </Form>
     );
   }
