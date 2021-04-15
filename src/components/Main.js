@@ -4,11 +4,26 @@ import { Card, CardColumns, Button } from "react-bootstrap";
 import React, { Component } from "react";
 import items from "../data.json";
 import SelectedBeast from "./SelectedBeast";
+import FilteredBeasts from "./FilteredBeasts";
 
 class Main extends Component {
+  constructor(props) {
+    super(props);
+    
+    //store the number of horns in state
+    this.state={
+      horns: 0,
+    }
+  }
+
+  onChange = (e) => {
+    this.setState({horns: e.target.value});
+  }
+
   render() {
     return (
       <CardColumns>
+        <FilteredBeasts onChange={this.onChange}/>
         {items.map((item) => (
           <HornedBeast
             key={item.title}
