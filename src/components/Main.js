@@ -17,21 +17,27 @@ class Main extends Component {
   }
 
   onChange = (e) => {
-    this.setState({horns: e.target.value});
+    this.setState({horns: parseInt(e.target.value)});
   }
 
   render() {
     return (
       <CardColumns>
         <FilteredBeasts onChange={this.onChange}/>
-        {items.map((item) => (
-          <HornedBeast
+        {this.state.horns < 1 || isNaN(this.state.horns) ?
+        items.map(item =>           
+        <HornedBeast
             key={item.title}
             title={item.title}
             desc={item.description}
             imgUrl={item.image_url}
-          />
-        ))}
+        />) : items.filter(item => item.horns === this.state.horns).map(item =>           
+        <HornedBeast
+            key={item.title}
+            title={item.title}
+            desc={item.description}
+            imgUrl={item.image_url}
+          />)}
       </CardColumns>
     );
   }
