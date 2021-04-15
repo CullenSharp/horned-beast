@@ -55,7 +55,7 @@ class HornedBeast extends Component {
       //<></> is called a fragment
       <Card bg="dark" text="light">
         <SelectedBeast
-          show={this.props.showModal}
+          show={this.state.showModal}
           onClose={this.handleClose}
           title={this.props.title}
           desc={this.props.desc}
