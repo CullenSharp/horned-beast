@@ -4,7 +4,6 @@ import { Card, CardColumns, Button } from "react-bootstrap";
 import React, { Component } from "react";
 import items from "../data.json";
 import SelectedBeast from "./SelectedBeast";
-import FilteredBeasts from "./FilteredBeasts";
 
 class Main extends Component {
   render() {
@@ -33,7 +32,7 @@ class HornedBeast extends Component {
   //props is undefined
   constructor(props) {
     super(props);
-    this.props = {
+    this.state = {
       likes: 0,
       showModal: false,
     };
@@ -48,7 +47,7 @@ class HornedBeast extends Component {
   };
 
   favorite = () => {
-    this.setState({ likes: this.props.likes + 1 });
+    this.setState({ likes: this.state.likes + 1 });
   };
 
   render() {
@@ -75,7 +74,7 @@ class HornedBeast extends Component {
           <Button
             variant="light"
             onClick={this.favorite}
-          >{`❤️ ${this.props.likes}`}</Button>
+          >{`❤️ ${this.state.likes}`}</Button>
         </Card.Body>
       </Card>
     );
