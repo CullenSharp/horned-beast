@@ -11,6 +11,7 @@ class Main extends Component {
       <CardColumns>
         {items.map((item) => (
           <HornedBeast
+            key={item.title}
             title={item.title}
             desc={item.description}
             imgUrl={item.image_url}
