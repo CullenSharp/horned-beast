@@ -9,14 +9,20 @@ class Main extends Component {
   render() {
     return (
       <CardColumns>
-        {items.map((item) => (
-          <HornedBeast
+        {this.props.horns < 1 || isNaN(this.props.horns) ?
+        items.map(item =>           
+        <HornedBeast
             key={item.title}
             title={item.title}
             desc={item.description}
             imgUrl={item.image_url}
-          />
-        ))}
+        />) : items.filter(item => item.horns === this.props.horns).map(item =>           
+        <HornedBeast
+            key={item.title}
+            title={item.title}
+            desc={item.description}
+            imgUrl={item.image_url}
+          />)}
       </CardColumns>
     );
   }
@@ -49,7 +55,7 @@ class HornedBeast extends Component {
       //<></> is called a fragment
       <Card bg="dark" text="light">
         <SelectedBeast
-          show={this.state.showModal}
+          show={this.props.showModal}
           onClose={this.handleClose}
           title={this.props.title}
           desc={this.props.desc}
