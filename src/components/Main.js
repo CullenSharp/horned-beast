@@ -7,31 +7,17 @@ import SelectedBeast from "./SelectedBeast";
 import FilteredBeasts from "./FilteredBeasts";
 
 class Main extends Component {
-  constructor(props) {
-    super(props);
-    
-    //store the number of horns in state
-    this.state={
-      horns: 0,
-    }
-  }
-
-  onChange = (e) => {
-    this.setState({horns: parseInt(e.target.value)});
-  }
-
   render() {
     return (
       <CardColumns>
-        <FilteredBeasts onChange={this.onChange}/>
-        {this.state.horns < 1 || isNaN(this.state.horns) ?
+        {this.props.horns < 1 || isNaN(this.props.horns) ?
         items.map(item =>           
         <HornedBeast
             key={item.title}
             title={item.title}
             desc={item.description}
             imgUrl={item.image_url}
-        />) : items.filter(item => item.horns === this.state.horns).map(item =>           
+        />) : items.filter(item => item.horns === this.props.horns).map(item =>           
         <HornedBeast
             key={item.title}
             title={item.title}
@@ -47,7 +33,7 @@ class HornedBeast extends Component {
   //props is undefined
   constructor(props) {
     super(props);
-    this.state = {
+    this.props = {
       likes: 0,
       showModal: false,
     };
@@ -62,7 +48,7 @@ class HornedBeast extends Component {
   };
 
   favorite = () => {
-    this.setState({ likes: this.state.likes + 1 });
+    this.setState({ likes: this.props.likes + 1 });
   };
 
   render() {
@@ -70,7 +56,7 @@ class HornedBeast extends Component {
       //<></> is called a fragment
       <Card bg="dark" text="light">
         <SelectedBeast
-          show={this.state.showModal}
+          show={this.props.showModal}
           onClose={this.handleClose}
           title={this.props.title}
           desc={this.props.desc}
@@ -89,7 +75,7 @@ class HornedBeast extends Component {
           <Button
             variant="light"
             onClick={this.favorite}
-          >{`❤️ ${this.state.likes}`}</Button>
+          >{`❤️ ${this.props.likes}`}</Button>
         </Card.Body>
       </Card>
     );

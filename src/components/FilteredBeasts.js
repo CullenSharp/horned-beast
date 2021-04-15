@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 export default class FilteredBeasts extends Component {
   render() {
     return (
-      <Form>
+      <Form inline>
         <Form.Control
           type="text"
           placeholder="Filter by Number of horns"
